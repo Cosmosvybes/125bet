@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        .nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
+
+
+        }
+
+        .nav h1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+
+        .nav a {
+            margin-left: 10px;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 5px 12px;
+            border-radius: 5px;
+        }
+
+        .nav a.active {
+            background-color: lawngreen;
+            color: white;
+        }
+
+        .nav a:hover {
+            background-color: black;
+            color: white;
+            transition: 0.7s;
+
+
+        }
+
+        @media screen and (max-width:650px) {
+            .nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+
+        <a href="/"> Home </a>
+        <a href="/login"> Login </a>
+        <a class="active" href="/register"> register </a>
+        <a style="color:white; background-color: black;" href="/admin"> Admin </a>
+
+
+    </div>
+
+</body>
+
+</html>

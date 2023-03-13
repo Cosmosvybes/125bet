@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Result page </title>
+    <style>
+        body {
+            background-color: lightskyblue;
+        }
+
+        table,
+        th,
+        td {
+            border-collapse: collapse;
+            border: 1px solid green;
+            width: 500px;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1 style="color:grey"> First Semester result </h1>
+
+    <table>
+
+        <tr>
+
+            <th> Com 105 </th>
+            <th> GNS </th>
+            <th> EED </th>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                <%= course.com105 %>
+            </td>
+            <td>
+                <%= course.eed102 %>
+            </td>
+            <td>
+                <%= course.gns101 %>
+            </td>
+        </tr>
+    </table>
+
+
+    <h1 style="color:grey"> Second Semester result </h1>
+
+    <table>
+
+        <tr>
+
+            <th> Com 123 </th>
+            <th> GNS124 </th>
+            <th> EED122 </th>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                <%= course.com123 %>
+            </td>
+            <td>
+                <%= course.eed122%>
+            </td>
+            <td>
+                <%= course.gns124 %>
+            </td>
+        </tr>
+    </table>
+
+
+</body>
+
+</html>
