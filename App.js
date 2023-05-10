@@ -90,7 +90,6 @@ app.post('/login', cors({ origin: 'http://localhost:1990/login', optionsSuccessS
                 res.setHeader("Content-Type", "text/html");
                 res.setHeader('Access-Control-Allow-Credentials', 'true');
                 res.redirect(302, '/playgame')
-                // res.status(302).send("login sucessful")
             }
             else {
                 res.status(403).send('incorrect password')

@@ -14,35 +14,35 @@ const connection = {
 const pool = mysql.createPool(connection).promise();
 
 
- async function getBetPlaced() {
+async function getBetPlaced() {
     const [bets] = await pool.query(`
     select *from betlist`);
     return bets;
 }
 
 
- async function getUsers() {
+async function getUsers() {
     const [users] = await pool.query(`
     select *from players`);
     return users;
 }
 
 
- async function getBetList(id) {
+async function getBetList(id) {
     const [data] = await pool.query(`
     select *from betlist
     where id = ?`, [id]);
     return data
 }
 
- async function getUser(id) {
+async function getUser(id) {
     const [user] = await pool.query(`select *from players where id = ?`, [id]);
     return user[0];
 }
 
 
 
- async function createUser(fullname) {
+async function createUser(fullname) {
     const regID = Math.floor(Math.random() * 1000 + 20230);
     const [player] = await pool.query(`
     insert into players(id,fullname)
@@ -57,7 +57,7 @@ const pool = mysql.createPool(connection).promise();
 
 
 
- async function placeBet(gameType, colorChoice, stake, userId) {
+async function placeBet(gameType, colorChoice, stake, userId) {
     const ticketID = Math.floor(Math.random() * 10000 + 20010);
     const betStake = await pool.query(`
     insert into betlist(id, game_type, color_choice,stake,user_id, time_)
@@ -73,7 +73,7 @@ const pool = mysql.createPool(connection).promise();
 // var placebet = await placeBet('last two', 'blue', 200, 20266, 5000)
 // console.log(placebet)
 
- async function getBet(userId) {
+async function getBet(userId) {
     const [bets] = await pool.query(`
     select *from betlist 
     where user_id = ?`, [userId])
@@ -82,7 +82,7 @@ const pool = mysql.createPool(connection).promise();
 
 
 
- async function popColors() {
+async function popColors() {
     var colors = ['red', 'blue', 'green', 'black', 'yellow']
     var randumNum = Math.floor(Math.random() * 5);
     var randumNum2 = Math.floor(Math.random() * 5)
@@ -103,7 +103,7 @@ const pool = mysql.createPool(connection).promise();
 }
 
 
- async function checkResult(colors, playerColor, type, stake) {
+async function checkResult(colors, playerColor, type, stake) {
     const result = await colors()
     var outCome;
     const { id, color1, color2, color3, color4, color5 } = result['game']
@@ -129,7 +129,7 @@ const pool = mysql.createPool(connection).promise();
 
 
 
- async function setColors(color1, color2, color3, color4, color5) {
+async function setColors(color1, color2, color3, color4, color5) {
     const [insertResult] = await pool.query(`
     insert into colors(color1,color2,color3,color4,color5, result_timestamp)
     values(?,?,?,?,?, current_timestamp)`, [color1, color2, color3, color4, color5])
@@ -137,7 +137,7 @@ const pool = mysql.createPool(connection).promise();
     return getGame(gameID)
 }
 
- async function getGame(id) {
+async function getGame(id) {
     const [game] = await pool.query(`
     select *from colors 
     where id = ?`, [id]);
@@ -145,7 +145,7 @@ const pool = mysql.createPool(connection).promise();
 }
 
 
- async function updateBalance(id, balance) {
+async function updateBalance(id, balance) {
     await pool.query(`
     update players
     set balance = ${balance}
@@ -153,9 +153,11 @@ const pool = mysql.createPool(connection).promise();
     return "balance updated"
 };
 
+
+
 // const data = await updateBalance(20266, 5000)
 // console.log(data)
 
 
-module.exports = { getUser, placeBet, updateBalance, checkResult }
+module.exports = { getUser, placeBet, updateBalance, checkResult, popColors }
 
