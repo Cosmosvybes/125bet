@@ -1,0 +1,559 @@
+* {
+    font-family: sans-serif;
+    font-size: x-small;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+    color: gray;
+}
+
+.home_ {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    justify-content: space-around;
+    padding: 10px 10px;
+    border: 1px solid green;
+    border-radius: 4px;
+
+}
+
+/* @media screen and (max-width:650px) {
+    #home_{
+
+    }
+} */
+
+#colorShow {
+    width: 400px;
+    height: auto;
+    /* border: 1px solid gray; */
+    padding: 10px;
+    display: flex;
+    visibility: hidden;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.colors {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid white; */
+    padding: 5px;
+
+}
+
+#userContainer {
+    height: auto;
+    width: auto;
+    border: 1px solid green;
+    position: relative;
+    margin-bottom: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#userContainer #balance,
+#username_ {
+    color: green;
+    position: relative;
+}
+
+@media screen and (max-width:650px) {
+    #userContainer {
+        width: auto;
+        border: none;
+    }
+
+    #userContainer #balance {
+        margin-right: -70px;
+    }
+}
+
+.colors div {
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px dotted lightgrey;
+    margin-left: 2px;
+    color: white;
+    text-align: center;
+}
+
+.pickedColor {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+.pickedColor div {
+    height: 30px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.screen_ {
+    width: 400px;
+    height: auto;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border: 1px solid lightgray;
+    display: block;
+
+
+}
+
+#play_query {
+    display: flex;
+    visibility: hidden;
+    justify-content: flex-start;
+}
+
+#pickButtonCont {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 5px;
+    margin-left: 10px;
+
+}
+
+#pickButtonCont button {
+    height: 30px;
+
+}
+
+#colorsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 400px;
+    margin-top: 70px;
+    visibility: hidden;
+    /* border: 1px solid white; */
+    margin-left: -10px;
+    height: 30px;
+
+}
+
+#popper {
+    background-color: green;
+    color: white;
+    width: 70px;
+    border: 1px solid green;
+    outline-color: green;
+    outline: none;
+}
+
+#oddboard {
+    height: auto;
+    display: block;
+    width: 400px;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    /* justify-content: space-around; */
+    border: 1px solid lightgrey;
+
+}
+
+#odds {
+    position: relative;
+    /* margin-left: 120px; */
+    display: flex;
+    justify-content: space-around;
+}
+
+table,
+th,
+td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    width: 100%;
+    padding: 10px;
+    color: green;
+}
+
+table,
+td {
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#betPlaced {
+    background-color: lightgrey;
+    width: auto;
+    height: auto;
+
+
+}
+
+#details {
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+    padding: 10px;
+    position: relative;
+}
+
+.list {
+    color: green;
+    position: relative;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid green;
+}
+
+/* .list {
+    color: green;
+    position: relative;
+    margin-top: 10px;
+    border: 1px dotted green;
+    border: 1px dotted green;
+    padding: 10px;
+    border-radius: 4px;
+} */
+
+@media screen and (max-width:650px) {
+    .home_ {
+
+        flex-direction: column;
+        border: none;
+    }
+
+    #screen_ {
+        width: auto;
+
+    }
+
+
+
+
+
+}
+
+
+#login_container {
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    height: 400px;
+    width: auto;
+    display: flex;
+
+}
+
+#login_input {
+    display: block;
+    height: auto;
+    width: auto;
+    /* border: 1px dotted black; */
+    margin-top: 30px;
+}
+
+#login_box {
+    height: 400px;
+    width: 500px;
+    margin-top: 70px;
+    border: 1px solid lightgrey;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px 0px rgb(213, 206, 206);
+    position: relative;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+
+
+}
+
+#login_container h1 {
+    position: relative;
+    text-align: center;
+}
+
+label,
+b,
+input {
+    display: block;
+
+}
+
+form {
+    position: relative;
+    margin-top: 90px;
+    /* display: flex; */
+
+    /* margin-left: 145px; */
+}
+
+#pass_,
+#fullname {
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px ridge rgb(213, 206, 206);
+
+    outline: none;
+}
+
+#loginButton {
+    position: relative;
+    width: 100%;
+    padding: 10px 10px;
+    margin-top: 10px;
+    margin-left: 1px;
+    border-radius: 4px;
+    background-color: green;
+    color: white;
+    border: inherit;
+    outline: none;
+
+}
+
+#forgetPSW {
+    display: flex;
+    width: 220px;
+    margin-top: 5px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#forgetPSW span a {
+    text-decoration: none;
+    color: green;
+}
+
+#header {
+    height: 140px;
+    position: relative;
+    top: 0;
+
+    width: auto;
+    background-color: black;
+    border: 1px solid grey;
+    color: white;
+    font-size: medium;
+
+
+}
+
+#navbars {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+#navs {
+    position: relative;
+    justify-content: space-evenly;
+    width: 350px;
+    padding: 10px 10px;
+
+}
+
+#navs a,
+span {
+    font-size: 12px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    padding: 10px 10px;
+
+    /* color: white; */
+    border-radius: 0px;
+
+}
+
+
+#navs a:hover,
+a:focus {
+    /* border: 1px solid white; */
+    background-color: lightgray;
+    transition: 0.9s;
+    color: black;
+    border-radius: 0px;
+    padding: 10px 10px;
+}
+
+#headline {
+    height: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid lightgrey;
+
+}
+
+#headlineText {
+    font-family: monospace;
+    text-align: center;
+    margin-top: 70px;
+    position: relative;
+
+}
+
+#headlineText h1 {
+    font-size: 25px;
+    color: black;
+}
+
+#headlineText button {
+    width: 100px;
+    color: white;
+    background-color: green;
+    padding: 10px 10px;
+    border: inherit;
+    outline: none;
+}
+
+#subheading {
+    position: relative;
+    height: auto;
+    color: black;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    padding: 5px 5px;
+}
+
+#subheadingtext {
+    width: 550px;
+    position: relative;
+    justify-content: space-around;
+    padding: 5px 5px;
+}
+
+
+#subheadingtext h1 {
+    font-size: 25px;
+    text-align: center;
+    color: black;
+}
+
+#subheadingtext p {
+    font-size: 13px;
+
+}
+
+
+#about_card {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    margin-top: 30px;
+    display: flex;
+}
+
+#about_card #picture {
+    height: 300px;
+    width: 400px;
+    border: 1px solid grey;
+}
+
+#about_card #intro_ {
+    margin-top: 50px;
+    display: block;
+    width: 600px;
+    position: relative;
+    /* border: 1px solid grey; */
+    height: auto;
+}
+
+#intro_ P,
+h1 {
+    font-size: 13px;
+}
+
+#intro_ button {
+    background-color: green;
+    width: 200px;
+    padding: 10px 10px;
+    color: white;
+    margin-top: 10px;
+    border: inherit;
+    outline: none;
+}
+
+@media screen and (max-width:650px) {
+
+
+
+    #subheadingtext h1 {
+        font-size: 23px;
+    }
+
+    #about_card {
+        flex-direction: column;
+    }
+
+    #navs {
+        display: none;
+    }
+
+    #about_card #intro_ {
+        width: auto;
+    }
+}
+
+#services_ {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: relative;
+    margin-top: 10px;
+    border-top: 1px solid black;
+}
+
+#service {
+    /* display: block; */
+    height: 350px;
+    border-top: none;
+    width: 400px;
+    border-bottom: 1px solid black;
+}
+
+@media screen and (max-width:650px) {
+    #services_ {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    #service {
+        width: auto;
+    }
+
+    #about_card #picture {
+        width: auto;
+    }
+
+    /* #header {
+        width: 400px
+    } */
+
+    #headline {
+        /* width: auto; */
+        border: none;
+        flex-direction: column;
+        /* border-left: 50px; */
+        position: relative;
+        justify-content: space-around;
+    }
+}
