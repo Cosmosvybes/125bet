@@ -179,12 +179,12 @@ app.post('/placebet', Auth, async (req, res) => {
     const id = req.user.id;
     const user = await getUser(id);
     if (user["balance"] < 100) {
-        res.status(403).send("fund your account , balance too low to stake")
+        res.status(403).send("fund your account , balance too low to stake, please add more funds")
     }
     else {
         var game = await placeBet(gameType, colorChoice, stake, id);
         user.balance -= stake;
-        await updateBalance(id, user.balance)
+        await updateBalance(id, user.balance);
         res.status(200).send({ game: game, balance: user.balance })
     }
 });
