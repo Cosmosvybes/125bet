@@ -1,7 +1,0 @@
-[0429/165903.829:ERROR:file_io.cc(90)] ReadExactly: expected 152, observed 40
-[0429/185630.220:ERROR:file_io.cc(90)] ReadExactly: expected 152, observed 40
-[0430/024650.814:ERROR:file_io.cc(90)] ReadExactly: expected 152, observed 40
-[0501/024432.868:ERROR:file_io.cc(90)] ReadExactly: expected 152, observed 40
-[0501/035220.808:ERROR:file_io.cc(90)] ReadExactly: expected 152, observed 40
-[0502/173439.141:ERROR:file_io.cc(90)] ReadExactly: expected 152, observed 40
-[0503/043319.742:ERROR:file_io.cc(90)] ReadExactly: expected 152, observed 40
