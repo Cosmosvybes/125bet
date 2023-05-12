@@ -58,7 +58,10 @@ async function createUser(fullname) {
 
 
 async function placeBet(gameType, colorChoice, stake, userId) {
-    const ticketID = Math.floor(Math.random() * 10000 + 20010);
+    var randomNum = Math.floor(Math.random() * 6);
+    var Alpha = ["A", 'B', "C", "D", "E", "Z", "Q"];
+    var randomString = Alpha[randomNum]
+    const ticketID = Math.floor(Math.random() * 10000 + 20010 );
     const betStake = await pool.query(`
     insert into betlist(id, game_type, color_choice,stake,user_id, time_)
     values(${ticketID}, ?,?,?,?,current_timestamp)`, [gameType, colorChoice, stake, userId]);
@@ -110,7 +113,7 @@ async function checkResult(colors, playerColor, type, stake) {
     var firstThree = [color1, color2, color3].includes(playerColor)
     var lastTwo = [color4, color5].includes(playerColor);
     // var two_ofThree = [color1, color2,color3].includes(playerColor)
-    if (type == 'first three') {
+    if (type == '1st three') {
         outCome = firstThree ? 'won ticket' : 'lost ticket';
         var pot_Winning = stake * 2.0;
     }

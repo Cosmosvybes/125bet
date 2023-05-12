@@ -39,16 +39,19 @@
 
                 <div class="pickedColor">
                     <div id="userColor"> </div>
-                    <div>
+                    <div id="userColor_">
                         <h1 id="gametype_"> </h1>
                     </div>
                 </div>
 
             </div>
+            <div id="gamePlayed">
+                <span id="status_"> </span>
+            </div>
             <h1 id="stake_" style="position: relative; display: none;  margin-left: 10px; margin-top: 100px;"> Stake:
-                 <input id="stakeValue" type="number" inputmode="numeric" pattern="0-9"
+                <input id="stakeValue" type="text" inputmode="numeric" pattern="0-9"
                     style="padding: 10px 10px ; border: 1px solid green; outline:none;" placeholder="Naira" /> <button
-                    style="display: block; outline: none; margin-top: 5px;  padding:10px 10px; border: 1px solid green; background-color: green; color: white; width:144px;"
+                    style="display: block; outline: none; margin-top: 5px;  padding:10px 10px; border: 1px solid green; background-color: green; color: white;  width:144px;"
                     id="placebet_">
                     place bet
                 </button>
@@ -58,20 +61,20 @@
             <div id="colorsContainer">
 
                 <div id="pickButtonCont">
-                    <input type="button" value="red" id="red">
-                    <input type="button" value="blue" id="blue">
-                    <input type="button" value="green" id="green">
-                    <input type="button" value="black" id="black" />
-                    <input type="button" value="yellow" id="yellow" />
+                    <input type="button" value="red" id="red" style="background-color: red; ">
+                    <input type="button" value="blue" id="blue" style="background-color: blue; ">
+                    <input type="button" value="green" id="green" style="background-color: green; ">
+                    <input type="button" value="black" id="black" style="background-color: black; " />
+                    <input type="button" value="yellow" id="yellow" style="background-color: yellow; " />
 
                 </div>
                 <select id="gametype">
-                    <option value="first 3"> first 3 </option>
-                    <option value="last 2"> last 2 </option>
-                    <option value="combo"> pot of jack </option>
+                    <option value="1st three"> 1st three </option>
+                    <option value="last two"> last two</option>
+                    <option value="combo"> combo x</option>
                 </select>
 
-                <button type="submit" id="popper" disabled> pop </button>
+                <button type="submit" id="popper"> pop </button>
 
 
 

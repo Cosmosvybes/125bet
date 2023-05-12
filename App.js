@@ -81,11 +81,11 @@ app.post('/login', cors({ origin: 'http://localhost:1990/login', optionsSuccessS
         if (user) {
             if (user.password === password) {
                 // /Authenticate the user and the user password
-                const jwt_ = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '1h' }); //sign the the fetched user data with secret key
-                res.cookie('token', jwt_, { maxAge: (60000 * 10), httpOnly: true, path: "/popcolors/placebet" }) // parsing the token as cookie to the the response header for the pathe to play game
-                res.cookie('token', jwt_, { maxAge: (60000 * 2), httpOnly: true, path: "/" })//parsing cookie for the home page route
-                res.cookie('token', jwt_, { maxAge: (60000 * 6), httpOnly: true, path: "/user/profile" })
-                res.cookie('token', jwt_, { maxAge: (60000 * 10), httpOnly: true, path: '/placebet' })// parsing for the profile page
+                const jwt_ = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '1d' }); //sign the the fetched user data with secret key
+                res.cookie('token', jwt_, { maxAge: (60000 * 100), httpOnly: true, path: "/popcolors/placebet" }) // parsing the token as cookie to the the response header for the pathe to play game
+                res.cookie('token', jwt_, { maxAge: (60000 * 100), httpOnly: true, path: "/" })//parsing cookie for the home page route
+                res.cookie('token', jwt_, { maxAge: (60000 * 100), httpOnly: true, path: "/user/profile" })
+                res.cookie('token', jwt_, { maxAge: (60000 * 100), httpOnly: true, path: '/placebet' })// parsing for the profile page
                 // res.setHeader('Set-Cookie', `jwt=${jwt_}`, 'path=/user/profile')
                 res.setHeader("Content-Type", "text/html");
                 res.setHeader('Access-Control-Allow-Credentials', 'true');

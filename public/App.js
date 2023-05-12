@@ -1,14 +1,14 @@
-
-
+var switchPopButton = false;
 var users;
 var outcome;
 var showColor = false;
-var gameDetails = { choice: '', betid: '', gemeType: '', user_balance: '' }
+var gameDetails = { choice: '', gemeType: '', user_balance: '', stake: '' }
 var color = [
     'red', 'blue', 'black', 'green', 'yellow'
 ]
 var picked = document.getElementById('gametype');
-var gameType = picked.options[picked.selectedIndex].value;
+
+
 
 function players() {
     fetch(`http://localhost:1990/user/profile`)
@@ -20,7 +20,6 @@ function players() {
         })
 }
 
-
 var start = true
 const pushStart = () => {
     return new Promise((resolve, reject) => {
@@ -29,15 +28,12 @@ const pushStart = () => {
         }
         else {
             reject("not playing game ")
-
         }
-
     })
 }
 
 
 
-var winning;
 
 pushStart()
     .then(() => {
@@ -82,37 +78,78 @@ for (let i = 0; i < availableColor.length; i++) {
 
 popper.addEventListener('click', async (e) => {
     e.preventDefault();
-});
+    var gameType = picked.options[picked.selectedIndex].value;
+    if (switchPopButton) {
+        await fetch("http://localhost:1990/popcolors", {
+            method: "POST",
+            credentials: "include",
+            headers: { 'Content-Type': "Application/json" },
+            body: JSON.stringify({ gameType: gameType, playerChoice: gameDetails['choice'], stake: stakeValue.value })
+        })
+            .then((response) => response.json())
+            .then(data => {
+                console.log(data.game)
+                setTimeout(() => {
+                    cl_1.style.backgroundColor = data.game.resultingColors.color1
+                }, 2000)
+                setTimeout(() => {
+                    cl_2.style.backgroundColor = data.game.resultingColors.color2
+                }, 4000)
+                setTimeout(() => {
+                    cl_3.style.backgroundColor = data.game.resultingColors.color3
+                }, 6000)
+                setTimeout(() => {
+                    cl_4.style.backgroundColor = data.game.resultingColors.color4
+                }, 8000)
+                setTimeout(() => {
+                    cl_5.style.backgroundColor = data.game.resultingColors.color5
+                }, 10000)
+                setTimeout(() => {
+                    if (data.game.status == "won ticket") {
+                        status_.style.color = "green"
+                    }
+                    else {
+                        status_.style.color = "red"
+                    }
+                    status_.innerHTML = data.game.status
+                }, 12000)
+            })
+        switchPopButton = false;
+    }
 
+    stakeValue.value = ''
+
+});
 
 
 
 
 placebet_.addEventListener('click', async (e) => {
     e.preventDefault();
+    var gameType = picked.options[picked.selectedIndex].value;
 
     if (!stakeValue.value) {
         alert('no value');
         return;
     }
 
-    fetch("http://localhost:1990/placebet", {
-        method: 'POST',
-        headers: { 'Content-Type': 'Application/json' },
-        body: JSON.stringify({ gameType: gameType, colorChoice: gameDetails['choice'], stake: stakeValue.value })
-    })
-        .then((data) => data.json())
-        .then((response) => {
-            gametype_.innerHTML = gameType;
-            stakeValue.value = ''
-            console.log(response);
-            balance.innerHTML = response['balance']
-            // fetch(`http://localhost:1990/balance/update/${newBal}`, {
-            //     method: 'POST',
-            //     headers: { "Content-Type": "Application/json" },
-            // }).then((response) => response.text())
-            //     .then((response_) => console.log(response_))
-        });
+    else {
+        fetch("http://localhost:1990/placebet", {
+            method: 'POST',
+            credentials: 'include',
+            headers: { 'Content-Type': 'Application/json' },
+            body: JSON.stringify({ gameType: gameType, colorChoice: gameDetails['choice'], stake: stakeValue.value })
+        })
+            .then((data) => data.json())
+            .then((response) => {
+                gametype_.innerHTML = gameType;
+                gametype_.style.color = "green"
+                console.log(response);
+                balance.innerHTML = response['balance'];
+            });
+        switchPopButton = true;
+        console.log(switchPopButton)
+    }
 });
 
 
@@ -120,23 +157,23 @@ placebet_.addEventListener('click', async (e) => {
 
 red.addEventListener('click', () => {
     userColor.style.backgroundColor = red.value;
-    popper.disabled = false;
+
 })
 blue.addEventListener('click', () => {
     userColor.style.backgroundColor = blue.value;
-    popper.disabled = false;
+
 })
 green.addEventListener('click', () => {
     userColor.style.backgroundColor = green.value;
-    popper.disabled = false;
+
 })
 black.addEventListener('click', () => {
     userColor.style.backgroundColor = black.value;
-    popper.disabled = false;
+
 })
 yellow.addEventListener('click', () => {
     userColor.style.backgroundColor = yellow.value;
-    popper.disabled = false;
+
 });
 
 var switch_ = false;
