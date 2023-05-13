@@ -1,3 +1,4 @@
+
 var switchPopButton = false;
 var users;
 var outcome;
@@ -10,15 +11,17 @@ var picked = document.getElementById('gametype');
 
 
 
-setInterval(() => {
-    fetch(`http://localhost:1990/user/profile`)
+(() => {
+    fetch(`http://localhost:1990/player`)
         .then((data) => data.json())
         .then((res) => {
             gameDetails['user_balance'] = `${res['balance']}`
-            username_.innerHTML = `${'Welcome, '} ${res['name']}`
+            username_.innerHTML = `${'Welcome, '} ${res['fullname']}`
             balance.innerHTML = `${'Balance - '} ${res['balance']}`
         })
-}, 1000)
+}
+)();
+
 
 var start = true
 const pushStart = () => {
@@ -104,26 +107,20 @@ popper.addEventListener('click', async (e) => {
                 setTimeout(() => {
                     cl_5.style.backgroundColor = data.game.resultingColors.color5
                 }, 10000)
+
                 setTimeout(() => {
                     if (data.game.status == "won ticket") {
-                        status_.style.color = "green"
+                        status_.style.color = "green";
+                        function updateBal() {
+                            fetch(`http://localhost:1990/player`)
+                                .then((data) => data.json())
+                                .then(response => balance.innerHTML = `Balance ${response['balance']}`)
+                        }
+                        updateBal();
                     }
-                    else {
-                        status_.style.color = "red"
-                    }
+                    else { status_.style.color = "red" }
                     status_.innerHTML = data.game.status
                 }, 12000)
-
-
-                // function updateBal() {
-                //     if (data.game.status == "won ticket") {
-                //         setTimeout(() => {
-                //             balance.innerHTML = data.winning
-                //         }, 1000)
-                //     }
-                // }
-
-                // updateBal();
 
             })
         switchPopButton = false;
@@ -157,10 +154,10 @@ placebet_.addEventListener('click', async (e) => {
                 gametype_.innerHTML = gameType;
                 gametype_.style.color = "green"
                 console.log(response);
-                balance.innerHTML = response['balance'];
+                balance.innerHTML = `Balance - ${response['balance']}`;
             });
         switchPopButton = true;
-        console.log(switchPopButton)
+
     }
 });
 

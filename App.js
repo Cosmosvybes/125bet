@@ -54,6 +54,11 @@ const Auth = (req, res, next) => {
 
 
 
+app.get('/player', Auth, async (req, res) => {
+    const user = await getUser(req.user.id)
+    res.status(200).send(user)
+})
+
 app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/public/login.html')
 });
@@ -85,8 +90,7 @@ app.post('/login', cors({ origin: 'http://localhost:1990/login', optionsSuccessS
                 res.cookie('token', jwt_, { maxAge: (60000 * 100), httpOnly: true, path: "/popcolors/placebet" }) // parsing the token as cookie to the the response header for the pathe to play game
                 res.cookie('token', jwt_, { maxAge: (60000 * 100), httpOnly: true, path: "/" })//parsing cookie for the home page route
                 res.cookie('token', jwt_, { maxAge: (60000 * 100), httpOnly: true, path: "/user/profile" })
-                res.cookie('token', jwt_, { maxAge: (60000 * 100), httpOnly: true, path: '/placebet' })// parsing for the profile page
-                // res.setHeader('Set-Cookie', `jwt=${jwt_}`, 'path=/user/profile')
+                res.cookie('token', jwt_, { maxAge: (60000 * 100), httpOnly: true, path: '/placebet' })// parsing cookie for the game page
                 res.setHeader("Content-Type", "text/html");
                 res.setHeader('Access-Control-Allow-Credentials', 'true');
                 res.redirect(302, '/playgame')
@@ -188,12 +192,6 @@ app.post('/placebet', Auth, async (req, res) => {
     }
 });
 
-
-app.post('/balance/update/:bal', Auth, async (req, res) => {
-    const balance = req.params.bal
-    const data = await updateBalance(req.user.id, balance);
-    res.send(data)
-})
 
 
 

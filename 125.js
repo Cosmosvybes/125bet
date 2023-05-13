@@ -115,15 +115,15 @@ async function checkResult(colors, playerColor, type, stake) {
     // var two_ofThree = [color1, color2,color3].includes(playerColor)
     if (type == '1st three') {
         outCome = firstThree ? 'won ticket' : 'lost ticket';
-        var pot_Winning = stake * 2.0;
+        var pot_Winning = stake * 3.0;
     }
     else if (type == "last two") {
         outCome = lastTwo ? 'won ticket' : 'lost ticket';
-        var pot_Winning = stake * 3.0;
+        var pot_Winning = stake * 4.0;
     }
     else if (type == 'combo') {
         outCome = firstThree && lastTwo ? 'won ticket' : 'lost ticket';
-        var pot_Winning = stake * 4.0;
+        var pot_Winning = stake * 10.0;
     }
     return { playerChoice: playerColor, message: 'bet successfully placed, goodluck!', stake: stake, potential_Winning: pot_Winning, gameType: type, status: outCome, resultingColors: result['game'] }
 
