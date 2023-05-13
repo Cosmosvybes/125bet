@@ -54,7 +54,7 @@ const Auth = (req, res, next) => {
 
 app.get('/', (req, res) => {
 
-    res.sendFile(__dirname + '/125.js')
+    res.sendFile(__dirname + '/Index.html')
 });
 
 
