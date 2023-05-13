@@ -16,8 +16,8 @@ body {
     box-sizing: border-box;
     justify-content: space-around;
     padding: 10px 10px;
-    border: 1px solid green;
-    border-radius: 4px;
+    border: 3px solid green;
+    /* border-radius:; */
 
 }
 
@@ -51,9 +51,9 @@ body {
 #userContainer {
     height: auto;
     width: auto;
-    border: 1px solid green;
+    border: 3px solid green;
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     padding: 5px;
     display: flex;
     justify-content: space-between;

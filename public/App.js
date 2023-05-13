@@ -10,7 +10,7 @@ var picked = document.getElementById('gametype');
 
 
 
-function players() {
+setInterval(() => {
     fetch(`http://localhost:1990/user/profile`)
         .then((data) => data.json())
         .then((res) => {
@@ -18,7 +18,7 @@ function players() {
             username_.innerHTML = `${'Welcome, '} ${res['name']}`
             balance.innerHTML = `${'Balance - '} ${res['balance']}`
         })
-}
+}, 1000)
 
 var start = true
 const pushStart = () => {
@@ -88,7 +88,7 @@ popper.addEventListener('click', async (e) => {
         })
             .then((response) => response.json())
             .then(data => {
-                console.log(data.game)
+                console.log(data)
                 setTimeout(() => {
                     cl_1.style.backgroundColor = data.game.resultingColors.color1
                 }, 2000)
@@ -113,6 +113,18 @@ popper.addEventListener('click', async (e) => {
                     }
                     status_.innerHTML = data.game.status
                 }, 12000)
+
+
+                // function updateBal() {
+                //     if (data.game.status == "won ticket") {
+                //         setTimeout(() => {
+                //             balance.innerHTML = data.winning
+                //         }, 1000)
+                //     }
+                // }
+
+                // updateBal();
+
             })
         switchPopButton = false;
     }
@@ -155,6 +167,7 @@ placebet_.addEventListener('click', async (e) => {
 
 
 
+
 red.addEventListener('click', () => {
     userColor.style.backgroundColor = red.value;
 
@@ -177,4 +190,5 @@ yellow.addEventListener('click', () => {
 });
 
 var switch_ = false;
+
 
