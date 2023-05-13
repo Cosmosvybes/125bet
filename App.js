@@ -54,9 +54,8 @@ const Auth = (req, res, next) => {
 
 app.get('/', (req, res) => {
 
-    res.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname + '/Index.html')
 });
-
 
 
 app.get('/player', Auth, async (req, res) => {
