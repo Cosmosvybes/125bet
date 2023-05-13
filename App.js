@@ -53,8 +53,14 @@ const Auth = (req, res, next) => {
 }
 
 app.get('/', (req, res) => {
+<<<<<<< HEAD
     res.sendFile(__dirname + '/index.html')
 });
+=======
+    res.sendFile(__dirname + '/public/index.html')
+});
+
+>>>>>>> 8d4dd8f691d163bd814dad5884df01cebd390f75
 
 app.get('/player', Auth, async (req, res) => {
     const user = await getUser(req.user.id)
@@ -66,6 +72,10 @@ app.get('/login', (req, res) => {
 });
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8d4dd8f691d163bd814dad5884df01cebd390f75
 
 app.get('/playgame', Auth, (req, res) => {
     res.sendFile(__dirname + '/125.html')
