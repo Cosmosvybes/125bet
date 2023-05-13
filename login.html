@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="App.css" />
+</head>
+
+<body>
+    <span><a href="#" style="text-decoration:underline; color:black;" onclick="history.back()">Go back </a>
+    </span>
+    <div id="login_container">
+
+        <div id="login_box">
+            <div id="login_input">
+                <form id="login" method="POST" action="/login">
+                    <label>
+                        <b>username</b>
+                        <input type="text" id="fullname" placeholder="username" />
+                    </label>
+                    <label>
+                        <b>password</b>
+                        <input type="text" id="pass_" placeholder="password" />
+                    </label>
+                    <button id="loginButton"> Sign in</button>
+
+                    <div id="forgetPSW">
+                        <span><a href="#"> forgot password ? </a></span>
+                        <span><a href="#"> create new account </a></span>
+
+                    </div>
+                </form>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <script src="Login.js">
+
+    </script>
+</body>
+
+</html>

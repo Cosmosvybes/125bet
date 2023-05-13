@@ -52,7 +52,9 @@ const Auth = (req, res, next) => {
 
 }
 
-
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
+});
 
 app.get('/player', Auth, async (req, res) => {
     const user = await getUser(req.user.id)
@@ -60,17 +62,13 @@ app.get('/player', Auth, async (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/public/login.html')
+    res.sendFile(__dirname + '/login.html')
 });
 
-
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html')
-});
 
 
 app.get('/playgame', Auth, (req, res) => {
-    res.sendFile(__dirname + '/public/125.html')
+    res.sendFile(__dirname + '/125.html')
 })
 
 app.get('/user/profile', Auth, (req, res) => {
